@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <img src="./assets/logo.png">
     <router-view/>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -13,6 +13,7 @@ export default {
 
 <style>
 @import 'vuetify/dist/vuetify.min.css';
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
