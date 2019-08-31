@@ -18,7 +18,7 @@
         label="Password"
         v-model="password"
         v-bind:rules="passwordRules"
-        v-bind:type="password"
+        v-bind:type="'password'"
         required>
       </v-text-field>
     </v-flex>
