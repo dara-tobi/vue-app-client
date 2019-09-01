@@ -12,9 +12,9 @@ const getters = {
 }
 
 const actions = {
-  logInUser({ commit }, payload) {
+  logInUser ({ commit }, payload) {
     // We'll call into the API in the next module :)
-    if (payload.email === 'test1@user.com' && payload.password === 'test111') {
+    if (payload.email === 'e@mail.com' && payload.password === '111') {
       // Simulate getting back a valid userId from API call...
       payload.userId = '5a777f0a75f64a1698221d98'
       commit('logInUser', payload)
@@ -25,12 +25,12 @@ const actions = {
 }
 
 const mutations = {
-  logInUser(state, payload) {
+  logInUser (state, payload) {
     state.email = payload.email
     state.userId = payload.userId
     state.isLoggedIn = true
   },
-  loginError(state) {
+  loginError (state) {
     state.isLoggedIn = false
     state.loginError = 'Email and/or Password are invalid. Login failed.'
   }
