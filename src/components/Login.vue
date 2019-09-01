@@ -31,7 +31,7 @@
     :timeout="6000"
     :top="true"
     v-model="showAlert">
-    {{ message }}
+    {{ loginError }}
   </v-snackbar>
 </v-container>
 </template>
@@ -48,23 +48,35 @@ export default {
       passwordRules: [
         v => !!v || 'Password is required'
       ],
-      showAlert: false,
-      message: ''
+      showAlert: false
     }
   },
   methods: {
     login: function () {
       const vm = this
-      if (vm.password === '111') {
-        this.$router.push({path: '/'})
-      } else {
-        // incorrect password!
-        vm.showAlert = true
-        vm.message = 'Email or password is invalid'
+      const payload = {
+        email: this.email,
+        password: this.password
       }
+
+      this.$store.dispatch('logInUser', payload).then(() => {
+        if (vm.isLoggedIn) {
+          this.$router.push({path: '/'})
+        } else {
+          vm.showAlert = true
+        }
+      })
     },
     cancel: function () {
       console.log('Cancel login')
+    }
+  },
+  computed: {
+    isLoggedIn: function () {
+      return this.$store.getters.isLoggedIn
+    },
+    loginError: function () {
+      return this.$store.getters.loginError
     }
   }
 }
