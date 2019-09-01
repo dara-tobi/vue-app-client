@@ -4,13 +4,13 @@
       <span class="pr-3">
         Transactions for {{ months[currentMonth].name }} - {{ currentYear }}
       </span>
-      <v-btn flat icon class="pr-2" v-on:click="gotoMonth(-1)">
+      <v-btn text icon class="pr-2" v-on:click="gotoMonth(-1)">
         <v-icon>keyboard_arrow_left</v-icon>
       </v-btn>
-      <v-btn flat icon class="pr-2" v-on:click="gotoCurrentMonth">
+      <v-btn text icon class="pr-2" v-on:click="gotoCurrentMonth">
         <v-icon>today</v-icon>
       </v-btn>
-      <v-btn flat icon v-on:click="gotoMonth(1)">
+      <v-btn text icon v-on:click="gotoMonth(1)">
         <v-icon>keyboard_arrow_right</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
@@ -53,7 +53,7 @@
       </template>
 
       <template slot="expand" slot-scope="props">
-        <v-card flat class="pl-5">
+        <v-card text class="pl-5">
           <v-card-text class="text-xs-left">
             <v-text-field label="Note" v-model="props.item.notes"></v-text-field>
           </v-card-text>

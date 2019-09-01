@@ -24,45 +24,45 @@
             </v-flex>
           </v-layout>
           <v-list-group v-else-if="item.children" v-model="item.model" v-bind:key="ndx" no-action>
-            <v-list-tile slot="item" @click="menuAction">
-              <v-list-tile-action>
+            <v-list-item slot="item" @click="menuAction">
+              <v-list-item-action>
                 <v-icon>{{ item.model ? item.icon : item['icon-alt'] }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>
                   {{ item.text }}
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item
               v-for="(child, i) in item.children"
               :key="i"
               @click="menuAction"
             >
-              <v-list-tile-action v-if="child.icon">
+              <v-list-item-action v-if="child.icon">
                 <v-icon>{{ child.icon }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>
                   {{ child.text }}
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
           </v-list-group>
-          <v-list-tile v-else @click="menuAction" v-bind:key="ndx">
-            <v-list-tile-action>
+          <v-list-item v-else @click="menuAction" v-bind:key="ndx">
+            <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
                 {{ item.text }}
-              </v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </template>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar
+    <v-app-bar
       color="blue darken-3"
       dark
       app
@@ -70,18 +70,18 @@
       fixed
     >
       <v-toolbar-title :style="$vuetify.breakpoint.smAndUp ? '' : 'min-width: 72px'" class="ml-0 pl-3">
-        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <span class="hidden-xs-only">Globomantics Rewards</span>
+
+        <span class="hidden-xs-only">Venom Rewards</span>
       </v-toolbar-title>
-      <!-- <v-text-field
+      <v-text-field
         light
         solo
         prepend-icon="search"
         placeholder="Search"
         style="max-width: 500px; min-width: 128px"
-      ></v-text-field> -->
+      ></v-text-field>
       <!-- <header-actions></header-actions> -->
-    </v-toolbar>
+    </v-app-bar>
     <v-content>
       <v-container fluid>
         <v-layout>
@@ -131,7 +131,7 @@ export default {
   mounted: function () {
     console.log('Is user logged in? ', this.isLoggedIn)
     if (!this.isLoggedIn) {
-      this.$router.push({ path: '/login' })
+      // this.$router.push({ path: '/login' })
     }
   }
 }
