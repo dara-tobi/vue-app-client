@@ -21,7 +21,7 @@ const actions = {
         if (data && data.length) {
           if (data[0].password === payload.password) {
             payload.userId = data[0]._id
-            commit('loginUser', payload)
+            commit('logInUser', payload)
           } else {
             commit('loginError')
           }

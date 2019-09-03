@@ -1,4 +1,4 @@
-// import Vue from 'vue'
+import Vue from 'vue'
 
 const state = {
   months: [
@@ -31,8 +31,15 @@ const getters = {
 
 const actions = {
   getTransactionsByMonth ({ commit, state, rootState }, payload) {
+    Vue.axios.get('/transaction/' + state.currentYear + '/' + state.currentMonth + '?userId=' + rootState.user.userId)
+      .then(res => {
+        let data = res.data
+        if (data && data.length) {
+          commit('transactionsByMonth', data)
+        }
+      })
+
     commit('transactionsByMonth', [])
-    // Will make API call here...
   },
   getPreviousMonthsBalances ({ commit, state, rootState }, payload) {
     commit('transactionsByMonth', [])
